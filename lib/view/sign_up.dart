@@ -52,7 +52,7 @@ class _SignUpState extends State<SignUp> {
             Padding(
               padding: const EdgeInsets.only(left: 29, right: 29),
               child: TextFormField(
-                controller: passwordController,
+               controller: passwordController,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock),
                   filled: true,

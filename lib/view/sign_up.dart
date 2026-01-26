@@ -10,6 +10,10 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  TextEditingController userOrEmailController = TextEditingController();
+
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +36,7 @@ class _SignUpState extends State<SignUp> {
             Padding(
               padding: const EdgeInsets.only(left: 32, right: 32),
               child: TextFormField(
+                controller: userOrEmailController,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.person),
                   filled: true,
@@ -47,6 +52,7 @@ class _SignUpState extends State<SignUp> {
             Padding(
               padding: const EdgeInsets.only(left: 29, right: 29),
               child: TextFormField(
+                controller: passwordController,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock),
                   filled: true,

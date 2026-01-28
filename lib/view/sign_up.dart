@@ -52,7 +52,7 @@ class _SignUpState extends State<SignUp> {
             Padding(
               padding: const EdgeInsets.only(left: 29, right: 29),
               child: TextFormField(
-               controller: passwordController,
+                controller: passwordController,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock),
                   filled: true,
@@ -81,18 +81,19 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 35),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.pinkAccent,
-                foregroundColor: Colors.white,
-                shape: BeveledRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(MediaQuery.widthOf(context)*0.80, 50),
+                  backgroundColor: Colors.pinkAccent,
+                  foregroundColor: Colors.white,
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
                 ),
+                onPressed: () {},
+                child: Text('Create account',style: TextStyle(fontSize: 18)),
               ),
-              onPressed: () {},
-              child: Text('Confirm Password'),
-            ),
             SizedBox(height: 70),
             Text('- Or Continue with -'),
             SizedBox(height: 20),

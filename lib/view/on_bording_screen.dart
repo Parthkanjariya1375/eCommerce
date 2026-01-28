@@ -23,12 +23,14 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
     ),
     OnBoardModel(
       title: "Make Payment",
-      descreption: "descreption",
+      descreption:
+          "Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.",
       image: "assets/2_onboarding.png",
     ),
     OnBoardModel(
       title: "Get Your Order",
-      descreption: "descreption",
+      descreption:
+          "Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.",
       image: "assets/3_onboarding.png",
     ),
   ];

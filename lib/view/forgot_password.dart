@@ -45,18 +45,19 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             Text(
               'We will send you a message to set or reset\nyou new password',
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.pinkAccent,
-                foregroundColor: Colors.white,
-                shape: BeveledRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(MediaQuery.widthOf(context)*0.80, 50),
+                  backgroundColor: Colors.pinkAccent,
+                  foregroundColor: Colors.white,
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
                 ),
+                onPressed: () {},
+                child: Text('Submit',style: TextStyle(fontSize: 18)),
               ),
-              onPressed: () {},
-              child: Text('Submit'),
-            ),
           ],
         ),
       ),

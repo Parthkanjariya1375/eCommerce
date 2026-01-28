@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
 import 'package:stylish_ecommerce/view/forgot_password.dart';
+import 'package:stylish_ecommerce/view/get_started.dart';
 import 'package:stylish_ecommerce/view/sign_up.dart';
 
 class SignIn extends StatefulWidget {
@@ -81,16 +82,24 @@ class _SignInState extends State<SignIn> {
               ],
             ),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.pinkAccent,
-                foregroundColor: Colors.white,
-                shape: BeveledRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(MediaQuery.widthOf(context)*0.80, 50),
+                  backgroundColor: Colors.pinkAccent,
+                  foregroundColor: Colors.white,
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
                 ),
+                onPressed: () {
+                  if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+                    Future.delayed(Duration(seconds: 2),(){
+                      context.goToNextWithRemoveUntil(GetStarted());
+                    });
+                  }
+                },
+                child: Text('Login',style: TextStyle(fontSize: 18)),
               ),
-              onPressed: () {},
-              child: Text('Login'),
-            ),
+
             SizedBox(height: 80),
             Text('- Or Continue with -'),
             SizedBox(height: 20),

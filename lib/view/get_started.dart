@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
+import 'package:stylish_ecommerce/view/home_page.dart';
 
 import '../widgets/my_button.dart';
 
@@ -49,7 +51,9 @@ class _GetStartedState extends State<GetStarted> {
                 ),
                 SizedBox(height: 10),
                 MyElevatedButton(
-                  onclick: () {},
+                  onclick: () {
+                    context.goToNext(HomePage());
+                  },
                   child: Text('Get Started', style: TextStyle(fontSize: 23)),
                 ),
               ],

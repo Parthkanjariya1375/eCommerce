@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
+import 'package:stylish_ecommerce/view/home_page.dart';
 import 'package:stylish_ecommerce/view/on_bording_screen.dart';
 
 class SplashScreen extends StatefulWidget {

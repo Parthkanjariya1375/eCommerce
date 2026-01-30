@@ -1,5 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
+import 'package:stylish_ecommerce/view/profile.dart';
+import 'package:stylish_ecommerce/view/trending_products.dart';
 import 'package:stylish_ecommerce/widgets/list_tile.dart';
 import 'package:stylish_ecommerce/widgets/product_design.dart';
 
@@ -20,7 +23,9 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: CircleAvatar(child: Icon(Icons.person)),
+            child: CircleAvatar(child: IconButton(onPressed: (){
+              context.goToNext(Profile());
+            }, icon: Icon(Icons.person))),
           ),
         ],
       ),
@@ -311,7 +316,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   spacing: 10,
                   children: [
-                    Image.asset('assets/summer_sale.png',fit: BoxFit.cover,),
+                    Image.asset('assets/summer_sale.png', fit: BoxFit.cover),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: Row(
@@ -319,11 +324,26 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Column(
                             children: [
-                              Text('New Arrivals',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
-                              Text('Summer 25 Collections',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500),)
+                              Text(
+                                'New Arrivals',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Text(
+                                'Summer 25 Collections',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
                             ],
                           ),
-                          ElevatedButton(onPressed: (){}, child: Text('View All -->'))
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text('View All -->'),
+                          ),
                         ],
                       ),
                     ),
@@ -331,49 +351,58 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 12,
-            ),
+            SizedBox(height: 12),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0,right: 8,bottom: 12),
+              padding: const EdgeInsets.only(left: 8.0, right: 8, bottom: 12),
               child: Container(
                 color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Sponserd',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
+                    Text(
+                      'Sponserd',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                     Image.asset('assets/offer_banner.png'),
-                    Text('Up to 50% OFF',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w800),)
+                    Text(
+                      'Up to 50% OFF',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ], // main column children
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined, color: Colors.grey),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border, color: Colors.grey),
-            label: 'Favorite',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined, color: Colors.grey),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search, color: Colors.grey),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings, color: Colors.grey),
-            label: 'Settings',
-          ),
-        ],
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: .spaceEvenly,
+          children: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.home_outlined)),
+            IconButton(
+              onPressed: () {
+                context.goToNext(TrendingProducts());
+              },
+              icon: Icon(Icons.favorite_border),
+            ),
+            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        backgroundColor: Colors.white,
+        child: Icon(Icons.shopping_cart_outlined),
+        onPressed: () {},
       ),
     );
   }

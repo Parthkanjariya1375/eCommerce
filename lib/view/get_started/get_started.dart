@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
-import 'package:stylish_ecommerce/view/home_page.dart';
+import 'package:stylish_ecommerce/view/home/home_page.dart';
 
-import '../widgets/my_button.dart';
+import '../../../widgets/my_button.dart';
 
 class GetStarted extends StatefulWidget {
   const GetStarted({super.key});

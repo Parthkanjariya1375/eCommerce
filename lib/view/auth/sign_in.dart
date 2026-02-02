@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
-import 'package:stylish_ecommerce/view/get_started.dart';
-import 'package:stylish_ecommerce/view/sign_in.dart';
+import 'package:stylish_ecommerce/view/auth/forgot_password.dart';
+
+import 'package:stylish_ecommerce/view/auth/sign_up.dart';
 import 'package:stylish_ecommerce/widgets/my_button.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+import '../get_started/get_started.dart';
+
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignInState extends State<SignIn> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
-  TextEditingController userOrEmailController = TextEditingController();
+
+  TextEditingController emailController = TextEditingController();
 
   TextEditingController passwordController = TextEditingController();
 
@@ -35,7 +39,7 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.only(top: 63, left: 32),
                     child: Text(
-                      'Create an\naccount',
+                      'Welcome\nBack!',
                       style: TextStyle(
                         fontSize: 36,
                         fontWeight: FontWeight.w700,
@@ -48,9 +52,9 @@ class _SignUpState extends State<SignUp> {
               Padding(
                 padding: const EdgeInsets.only(left: 32, right: 32),
                 child: TextFormField(
-                  controller: userOrEmailController,
-                  validator: (String? email) {
-                    return isEmail(email) ? null : 'Enter valid Email';
+                  controller: emailController,
+                  validator: (String? data) {
+                    return isEmail(data) ? null : "Enter Valid Email";
                   },
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
@@ -68,8 +72,8 @@ class _SignUpState extends State<SignUp> {
                 padding: const EdgeInsets.only(left: 29, right: 29),
                 child: TextFormField(
                   controller: passwordController,
-                  validator: (String? pass) {
-                    return isPassword(pass) ? null : 'Enter valid Password';
+                  validator: (String? data) {
+                    return isPassword(data) ? null : 'Enter valid password';
                   },
                   obscureText: showAndHide,
                   decoration: InputDecoration(
@@ -86,44 +90,25 @@ class _SignUpState extends State<SignUp> {
                           showAndHide = !showAndHide;
                         });
                       },
-                      icon: Icon(Icons.remove_red_eye),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 25),
-              Padding(
-                padding: const EdgeInsets.only(left: 29, right: 29),
-                child: TextFormField(
-                  validator: (String? pass2) {
-                    if (!isPassword(pass2)) {
-                      return 'Enter valid Password';
-                    }
-                    return isPasswordConfirm(passwordController.text, pass2)
-                        ? null
-                        : 'Please match both Password';
-                  },
-                  obscureText: showAndHide,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    filled: true,
-                    fillColor: Colors.grey[300],
-                    hint: Text('Confirm Password'),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          showAndHide = !showAndHide;
-                        });
-                      },
                       icon: Icon(Icons.remove_red_eye_rounded),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 35),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: TextButton(
+                      onPressed: () {
+                        context.goToNext(ForgotPassword());
+                      },
+                      child: Text('Forgot Password?'),
+                    ),
+                  ),
+                ],
+              ),
               MyElevatedButton(
                 onclick: () {
                   if (_formKey.currentState?.validate() ?? false) {
@@ -136,9 +121,10 @@ class _SignUpState extends State<SignUp> {
                     });
                   }
                 },
-                child: Text('Create account', style: TextStyle(fontSize: 18)),
+                child: Text('Login', style: TextStyle(fontSize: 18)),
               ),
-              SizedBox(height: 70),
+
+              SizedBox(height: 80),
               Text('- Or Continue with -'),
               SizedBox(height: 20),
               Row(
@@ -154,12 +140,12 @@ class _SignUpState extends State<SignUp> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('I Already Have an Account'),
+                  Text('Create An Account'),
                   TextButton(
                     onPressed: () {
-                      context.goback(SignIn());
+                      context.goToNext(SignUp());
                     },
-                    child: Text('Login'),
+                    child: Text('Sign Up'),
                   ),
                 ],
               ),
@@ -170,19 +156,15 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  bool isEmail(String? email) {
+  bool isEmail(String? data) {
     return RegExp(
       r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
-    ).hasMatch(email ?? '');
+    ).hasMatch(data ?? "");
   }
 
-  bool isPassword(String? pass) {
+  bool isPassword(String? data) {
     return RegExp(
       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$',
-    ).hasMatch(pass ?? '');
-  }
-
-  bool isPasswordConfirm(String? pass1, String? pass2) {
-    return pass1 == pass2;
+    ).hasMatch(data ?? '');
   }
 }

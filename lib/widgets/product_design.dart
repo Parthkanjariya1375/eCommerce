@@ -14,7 +14,10 @@ class ProductDesign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      decoration: BoxDecoration(
+          color: Colors.white,
+        borderRadius: .circular(12)
+      ),
       child: Column(
         children: [
           Image.asset(image, height: 100),
@@ -29,6 +32,7 @@ class ProductDesign extends StatelessWidget {
               description ?? '',
               style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
               textAlign: TextAlign.center,
+              maxLines: 2,
             ),
           Text(
             prize,

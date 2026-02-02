@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
-import 'package:stylish_ecommerce/view/sign_in.dart';
+import 'package:stylish_ecommerce/view/auth/sign_in.dart';
 import 'package:stylish_ecommerce/widgets/my_button.dart';
 
 class ForgotPassword extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:stylish_ecommerce/models/on_board_model.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
-import 'package:stylish_ecommerce/view/sign_in.dart';
+import 'package:stylish_ecommerce/view/auth/sign_in.dart';
 
 class OnBordingScreen extends StatefulWidget {
   const OnBordingScreen({super.key});

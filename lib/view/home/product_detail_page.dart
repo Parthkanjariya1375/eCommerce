@@ -29,32 +29,50 @@ class ProductDetailPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        spacing: 10,
-        children: [
-          Hero(
-            tag: image,
-            child: Image.asset(image, height: 280, fit: .fill),
-          ),
-          Text(
-            title,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-          ),
-          Text(
-            description,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
-            textAlign: TextAlign.center,
-          ),
-          Text(
-            'price : $price',
-            style: TextStyle(
-              fontWeight: FontWeight.w800,
-              decoration: TextDecoration.underline,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          spacing: 10,
+          children: [
+            Hero(
+              tag: image,
+              child: Image.asset(image, height: 280, fit: .fill),
             ),
-          ),
-        ],
+            Text(
+              title,
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+            ),
+            Text(
+              description,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              'price : $price',
+              style: TextStyle(
+                fontSize: 21,
+                fontWeight: FontWeight.w800,
+                decoration: TextDecoration.underline,
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.pink[100],
+                borderRadius: .circular(12),
+              ),
+              height: 70,
+              width: MediaQuery.of(context).size.width,
+              child: Center(
+                child: Text(
+                  'Delivery in within 1 Hour',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

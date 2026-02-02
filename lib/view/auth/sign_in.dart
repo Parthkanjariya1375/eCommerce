@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
 import 'package:stylish_ecommerce/view/auth/forgot_password.dart';
 
@@ -112,7 +113,9 @@ class _SignInState extends State<SignIn> {
               MyElevatedButton(
                 onclick: () {
                   if (_formKey.currentState?.validate() ?? false) {
-                    Future.delayed(Duration(seconds: 2), () {
+                    Future.delayed(Duration(seconds: 2), () async {
+                      final preferences = await SharedPreferences.getInstance();
+                      preferences.setBool('isLoggedIn', true);
                       context.goToNextWithRemoveUntil(GetStarted());
                     });
                   } else {

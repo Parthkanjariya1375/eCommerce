@@ -15,7 +15,14 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.goToNext(ProductDetailPage(image: image, title: title, description: description, price: price));
+        context.goToNext(
+          ProductDetailPage(
+            image: image,
+            title: title,
+            description: description,
+            price: price,
+          ),
+        );
       },
       child: Card(
         color: Colors.white,
@@ -24,9 +31,7 @@ class ProductCard extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Hero(
-                tag: image,
-                  child: Image.asset(image)),
+              Hero(tag: image, child: Image.asset(image)),
               Text(
                 title,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stylish_ecommerce/view/home/product_detail_page.dart';
+import 'package:stylish_ecommerce/view/home/wishlist_tab/product_detail_page.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
 
 class ProductCard extends StatelessWidget {

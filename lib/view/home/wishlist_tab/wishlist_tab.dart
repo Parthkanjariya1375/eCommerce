@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import '../../widgets/product_card_staggered.dart';
+import '../../../widgets/product_card_staggered.dart';
 
 class WishlistTab extends StatelessWidget {
   const WishlistTab({super.key});

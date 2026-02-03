@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
-import 'package:stylish_ecommerce/view/home/home_tab.dart';
+import 'package:stylish_ecommerce/view/home/add_to_cart_tab/add_to_cart.dart';
+import 'package:stylish_ecommerce/view/home/home_tab/home_tab.dart';
 import 'package:stylish_ecommerce/view/profile/profile.dart';
-import 'package:stylish_ecommerce/view/home/search_tab.dart';
-import 'package:stylish_ecommerce/view/home/setting_tab.dart';
-import 'package:stylish_ecommerce/view/home/wishlist_tab.dart';
-
-import 'add_to_cart.dart';
+import 'package:stylish_ecommerce/view/home/search_tab/search_tab.dart';
+import 'package:stylish_ecommerce/view/home/setting_tab/setting_tab.dart';
+import 'package:stylish_ecommerce/view/home/wishlist_tab/wishlist_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +16,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   PageController pageController = PageController();
-
   int _currentIndex = 0;
 
   @override
@@ -61,10 +59,7 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: NavigationBar(
         destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            label: "Home",
-          ),
+          NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
           NavigationDestination(
             icon: Icon(Icons.favorite_border_outlined),
             label: "Wishlist",
@@ -78,9 +73,9 @@ class _HomePageState extends State<HomePage> {
             label: "Settings",
           ),
         ],
-       onDestinationSelected: (index){
-         pageController.jumpToPage(index);
-       },
+        onDestinationSelected: (index) {
+          pageController.jumpToPage(index);
+        },
         selectedIndex: _currentIndex,
       ),
       resizeToAvoidBottomInset: false,
@@ -96,4 +91,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

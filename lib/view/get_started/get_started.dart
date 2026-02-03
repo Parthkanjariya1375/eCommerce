@@ -52,9 +52,9 @@ class _GetStartedState extends State<GetStarted> {
                 SizedBox(height: 10),
                 MyElevatedButton(
                   onclick: () {
-                    context.goToNext(HomePage());
+                    context.goToNextWithRemoveUntil(HomePage());
                   },
-                  child: Text('Get Started', style: TextStyle(fontSize: 23)),
+                  child: Text('Explore App', style: TextStyle(fontSize: 23)),
                 ),
               ],
             ),

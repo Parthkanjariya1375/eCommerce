@@ -15,17 +15,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2),(){
+    Future.delayed(Duration(seconds: 2), () {
       checkValue();
     });
   }
+
   Future<void> checkValue() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    if(preferences.getBool('isLoggedIn')??false){
+    if (preferences.getBool('isLoggedIn') ?? false) {
       context.goToNext(HomePage());
-    }
-    else
-    {
+    } else {
       context.goToNext(OnBordingScreen());
     }
   }

@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/list_tile.dart';
-import '../../widgets/product_design.dart';
+import '../../../widgets/list_tile.dart';
+import '../../../widgets/product_design.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
@@ -42,7 +42,7 @@ class HomeTab extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: SingleChildScrollView(
-              scrollDirection: .horizontal,
+              scrollDirection: Axis.horizontal,
               child: Row(
                 spacing: 15,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -191,20 +191,6 @@ class HomeTab extends StatelessWidget {
                     prize: 'rs. 2499',
                     image: 'assets/snickers.png',
                   ),
-                  ProductDesign(
-                    title: 'Women Printed kurta',
-                    description:
-                    'Neque porro quisquam est qui\ndolorem ipsum quia',
-                    prize: 'rs. 1499',
-                    image: 'assets/women_kurta.png',
-                  ),
-                  ProductDesign(
-                    title: 'HRX by Hrithik Roshan',
-                    description:
-                    'Neque porro quisquam est qui\ndolorem ipsum quia',
-                    prize: 'rs. 2499',
-                    image: 'assets/snickers.png',
-                  ),
                 ],
               ),
             ),
@@ -264,23 +250,14 @@ class HomeTab extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              height: 200,
+              height: 150,
               child: GridView(
                 scrollDirection: Axis.horizontal,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 10,
                   crossAxisCount: 1,
                 ),
                 children: [
-                  ProductDesign(
-                    title: 'IWC Schaffhausen 2021\nPilots Watch',
-                    prize: 'rs. 650',
-                    image: 'assets/pilot_watch.png',
-                  ),
-                  ProductDesign(
-                    title: 'Labbin White Sneakers\nFor Men and Female',
-                    prize: 'rs. 650',
-                    image: 'assets/labbin_sneaker.png',
-                  ),
                   ProductDesign(
                     title: 'IWC Schaffhausen 2021\nPilots Watch',
                     prize: 'rs. 650',
